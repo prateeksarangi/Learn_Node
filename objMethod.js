@@ -20,3 +20,11 @@ const personGreet = {
 
 personGreet.greet()
 
+const printName = ({ name, age }) => {
+    console.log(name + ', ' + age)
+}
+
+printName(person)
+
+let {name, age} = person
+console.log(name, age)
