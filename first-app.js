@@ -1,4 +1,4 @@
-console.log("Hello world")
+console.log('Hello world')
 
 const fs = require('fs')
 fs.writeFileSync('hello.txt', 'Hello world')
@@ -13,8 +13,8 @@ for(i of arr) {
 
 const arr = ['Hii', 'Hello', 'Bye']
 
-for(i of arr) {
-    console.log(i)
+for (const i of arr) {
+  console.log(i)
 }
 
 console.log(arr.map(i => i + 'World!!'))
