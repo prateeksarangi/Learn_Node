@@ -2,7 +2,7 @@ const fs = require('fs')
 
 const responseHandler = (req, res) => {
   const url = req.url
-
+  
   if (url === '/') {
     res.write('<html>')
     res.write('<head><title>My Page!!</title></head>')
