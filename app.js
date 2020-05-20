@@ -1,7 +1,4 @@
-const http = require('http')
-
 const express = require('express')
-
 const app = express()
 
 app.use((req, res, next) => {
@@ -9,6 +6,9 @@ app.use((req, res, next) => {
     next() // Allows the request to continue to the next middleware in line
 })
 
-const server = http.createServer(app)
+app.use((req, res, next) => {
+    console.log('In the middleware')
+    res.send()
+})
 
-server.listen(3000)
+app.listen(3000)
