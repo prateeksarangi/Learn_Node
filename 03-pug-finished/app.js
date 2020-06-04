@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+app.engine('pug', require('pug').__express) // Not written in the course.
 app.set('view engine', 'pug');
 app.set('views', 'views');
 
