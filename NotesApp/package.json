@@ -1,0 +1,22 @@
+{
+  "name": "notesapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prateeksarangi/Learn_Node.git"
+  },
+  "author": "Prateek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prateeksarangi/Learn_Node/issues"
+  },
+  "homepage": "https://github.com/prateeksarangi/Learn_Node#readme",
+  "dependencies": {
+    "validator": "^13.1.1"
+  }
+}
