@@ -1,5 +1,6 @@
 const validator = require('validator');
 const fs = require('fs');
+const chalk = require('chalk');
 const add = require('./utils.js');
 const getNotes = require('./note.js');
 
@@ -9,14 +10,14 @@ console.log("Inside the app file!!");
 const sum = add(4, 8);
 console.log(sum);
 console.log(getNotes());
-if(validator.isEmail('sarangiprateek80@gmail.com')) {
-  console.log('Varified Email');
+if(validator.isEmail('sarangiprateek80@gmail')) {
+  console.log(chalk.green('Valid Email'));
 } else {
-  console.log('Not a varified email');
+  console.log(chalk.blue.bgRed.bold('Invalid Email'));
 }
 
 if(validator.isURL('https://wiki.hyperledger.org/display/fabric/Hyperledger+Fabric')) {
-  console.log('Valid URL');
+  console.log(chalk.green.bgYellow.bold('Valid URL'));
 } else {
-  console.log('Invalid URL');
+  console.log(chalk.red('Invalid URL'));
 }
