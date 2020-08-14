@@ -1,8 +1,5 @@
 const fs = require('fs');
-
-const getNotes = () => {
-  return "Your Notes...";
-}
+const chalk = require('chalk');
 
 const addNote = (title, body) => {
   const notes = loadNote();
@@ -17,11 +14,52 @@ const addNote = (title, body) => {
     });
 
     saveNote(notes);
-    console.log('New note added!!');
+    console.log(chalk.green.inverse('New note added!!'));
   } else {
-    console.log('Note title taken!!');
+    console.log(chalk.red.inverse('Note title taken!!'));
   }
 
+}
+
+const removeNote = (title) => {
+  const notes = loadNote();
+  const idx = notes.indexOf({title});
+
+  const notesToKeep = notes.filter((note) => {
+    return note.title !== title
+  })
+
+  if ( notesToKeep.length === notes.length ) {
+    console.log(chalk.red.inverse('No notes found!!'));
+  } else {
+    saveNote(notesToKeep);
+    console.log((chalk.green.inverse('Note remove!!')));
+  }
+}
+
+const listNote = () => {
+  const notes = loadNote();
+  for ( let i in notes ) {
+    console.log(notes[i].title);
+  }
+}
+
+const readNote = (title) => {
+  // console.log('Reading note!!');
+  // console.log(title);
+  const notes = loadNote();
+  const idx = notes.indexOf({title});
+
+  const noteToRead = notes.filter((note) => {
+    return note.title === title;
+  })
+
+  if ( noteToRead.length !== 0 ) {
+    console.log('Title:- ' + noteToRead[0].title);
+    console.log('Body:- ' + noteToRead[0].body);
+  } else {
+    console.log((chalk.red.inverse('Note not found!!')));
+  }
 }
 
 
@@ -40,6 +78,8 @@ const loadNote = () => {
 }
 
 module.exports = {
-  getNotes: getNotes,
-  addNote: addNote
+  removeNote: removeNote,
+  addNote: addNote,
+  listNote: listNote,
+  readNote: readNote
 };
