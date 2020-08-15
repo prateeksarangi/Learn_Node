@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/prateeksarangi/Learn_Node/issues"
   },
-  "homepage": "https://github.com/prateeksarangi/Learn_Node#readme"
+  "homepage": "https://github.com/prateeksarangi/Learn_Node#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
 }
