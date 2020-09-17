@@ -7,7 +7,10 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join( __dirname, '../public' )));
 
 app.get ('/', ( req, res ) => {
-  res.render('index');
+  res.render('index', {
+    title: 'Weather',
+    name: 'Prateek'
+  });
 });
 
 app.get ('/help', ( req, res ) => {
@@ -15,7 +18,10 @@ app.get ('/help', ( req, res ) => {
 });
 
 app.get ('/about', ( req, res ) => {
-  res.send('Inside about page');
+  res.render('about', {
+    title: 'About',
+    head: 'About pade HBS'
+  });
 });
 
 app.get ('/weather', ( req, res ) => {
