@@ -8,7 +8,7 @@ if (!findWeather) {
 } else {
   geocode(findWeather, (error, data) => {
     if (error) {
-      return console.log();
+      return console.log(error);
     }
     const location = {longitude: data.longitude,
       latitude: data.latitude};
