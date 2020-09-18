@@ -31,6 +31,14 @@ app.get ('/help', ( req, res ) => {
   });
 });
 
+app.get ('/help/*', ( req, res ) => {
+  res.render('help404', {
+    header: '404 Help',
+    message: 'Help article not found',
+    name: 'Prateek'
+  });
+});
+
 app.get ('/about', ( req, res ) => {
   res.render('about', {
     title: 'About',
@@ -44,7 +52,11 @@ app.get ('/weather', ( req, res ) => {
 });
 
 app.get ('*', ( req, res ) => {
-  res.send('404 error page');
+  res.render('404', {
+    header: '404 Page',
+    message: '404 page not found',
+    name: 'Prateek'
+  });
 });
 
 app.listen ( 5000, ( ) => {
