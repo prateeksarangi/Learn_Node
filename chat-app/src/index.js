@@ -1,7 +1,11 @@
 const path = require('path');
+const http = require('http');
 const express = require('express');
+const socketio = require('socket.io');
 
 const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
 
 const port = process.env.PORT || 5000;
 
@@ -16,6 +20,10 @@ app.get ('/', ( req, res ) => {
   res.render('index');
 });
 
-app.listen ( port, ( ) => {
+io.on('connection', ( ) => {
+  console.log('New websocket connected!!');
+});
+
+server.listen ( port, ( ) => {
   console.log(`Server is running at port: ${port}!`);
 } );
