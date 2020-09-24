@@ -3,6 +3,8 @@ const express = require('express');
 
 const app = express();
 
+const port = process.env.PORT || 5000;
+
 const publicDir = path.join( __dirname, '../public' );
 const viewDir = path.join( __dirname, '../templates/views' );
 
@@ -14,6 +16,6 @@ app.get ('/', ( req, res ) => {
   res.render('index');
 });
 
-app.listen ( 5000, ( ) => {
-  console.log('Server is running!');
+app.listen ( port, ( ) => {
+  console.log(`Server is running at port: ${port}!`);
 } );
