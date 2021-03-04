@@ -6,6 +6,7 @@ const geocode = require('./utils/geocode.js');
 const forcast = require('./utils/forcast.js');
 
 const app = express();
+const port = process.env.PORT || 5000;
 
 const publicDir = path.join( __dirname, '../public' );
 const viewDir = path.join( __dirname, '../templates/views' );
@@ -20,7 +21,7 @@ app.use (express.static(publicDir));
 app.get ('/', ( req, res ) => {
   res.render('index', {
     title: 'Weather',
-    head: 'Head of root page',
+    head: 'Weather Application',
     name: 'Prateek'
   });
 });
@@ -103,6 +104,6 @@ app.get ('*', ( req, res ) => {
   });
 });
 
-app.listen ( 5000, ( ) => {
-  console.log('Server is running!');
+app.listen ( port, ( ) => {
+  console.log('Server is running at port ' + port );
 } );
